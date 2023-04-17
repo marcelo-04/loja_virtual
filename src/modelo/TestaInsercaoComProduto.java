@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import dao.ProdutoDAO;
+
 public class TestaInsercaoComProduto {	
 
 	public static void main(String[] args) throws SQLException {
@@ -14,22 +16,10 @@ public class TestaInsercaoComProduto {
 		
 		try(Connection connection = new ConnectionFactory1().recuperarConexao()) {
 			
-			String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO) VALUES (?, ?)";
+			ProdutoDAO produtoDao = new ProdutoDAO(connection);
+			produtoDao.salvar(comoda);	
+			//Lista = persistenciaProduto.lista();
 			
-			try(PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-				
-				preparedStatement.setString(1, comoda.getNome());
-				preparedStatement.setString(2, comoda.getDescricao());
-				
-				preparedStatement.execute();
-				
-				try(ResultSet resulSet = preparedStatement.getGeneratedKeys()) {
-					while(resulSet.next()) {
-						comoda.setId(resulSet.getInt(1));
-					}
-				}
-			}	
 		}
-		System.out.println(comoda);
 	}
 }
