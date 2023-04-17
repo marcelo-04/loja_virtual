@@ -35,5 +35,10 @@ Efetuando o primeiro método de operação com banco de dados com aplicação Ja
 * Além de ficar com um código mais bonito, ele vem com esse benefício de tirar da nossa responsabilidade explicitar esses fechamentos.
 * Try com recursos e o close, ao utilizar o try-with-resources, não é mais necessário explicitar o close para fechar o statements (ResultSet, Connection, PreparedStatement)?
 * Pelo fato dos statements estenderem AutoCloseable, o try-with-resources executa o método close sem que precise estar explícito.
+### Testando o pool de conexões
+* Para conseguirmos testar o nosso Pool de conexões, a primeira coisa que teremos que fazer é ir na ConnectionFactory, nas configurações do Pool.
+* Vou definir ele como comboPooledDataSource.setMaxPoolSize(15);. Então quando eu instanciar a minha Connection factory, 
+* Ao carregar minhas informações no Pool, eu quero que ele já carregue o Pool com 15 conexões disponíveis.
+* Vou fazer um for (int i = 0; i < 20; i++), eu quero requisitar 20 conexões. Eu quero fazer 20 requisições para o meu Pool de conexões.
 
 
