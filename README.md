@@ -40,11 +40,12 @@ Efetuando o primeiro método de operação com banco de dados com aplicação Ja
 * Vou definir ele como comboPooledDataSource.setMaxPoolSize(15);. Então quando eu instanciar a minha Connection factory, 
 * Ao carregar minhas informações no Pool, eu quero que ele já carregue o Pool com 15 conexões disponíveis.
 * Vou fazer um for (int i = 0; i < 20; i++), eu quero requisitar 20 conexões. Eu quero fazer 20 requisições para o meu Pool de conexões.
-
- *   É boa prática usar um pool de conexões
- *   Um pool de conexões administra/controla a quantidade de conexões abertas
- *    Normalmente tem um mínimo e máximo de conexões
- *  Como existe uma interface que representa a conexão (java.sql.Connection), também existe uma interface que representa o pool de conexões (javax.sql.DataSource)
- *  C3PO é uma implementação Java de um pool de conexão
+* É boa prática usar um pool de conexões
+* Um pool de conexões administra/controla a quantidade de conexões abertas
+* Normalmente tem um mínimo e máximo de conexões
+* Como existe uma interface que representa a conexão (java.sql.Connection), também existe uma interface que representa o pool de conexões (javax.sql.DataSource)
+* C3PO é uma implementação Java de um pool de conexão
+### DAO's e construtor
+* Como cada um dos DAO's possui uma conexão distinta, eles não estarão envolvidos na mesma transação e ficamos incapazes de utilizarta recursos.
 
 
