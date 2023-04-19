@@ -5,10 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import dao.ProdutoDAO;
 
-public class TestaInsercaoComProduto {	
+public class TestaInsercaoEListagemComProduto {	
 
 	public static void main(String[] args) throws SQLException {
 		
@@ -18,8 +19,9 @@ public class TestaInsercaoComProduto {
 			
 			ProdutoDAO produtoDao = new ProdutoDAO(connection);
 			produtoDao.salvar(comoda);	
-			//Lista = persistenciaProduto.lista();
 			
+			List<Produto> listaDeProdutos = produtoDao.listar();
+			listaDeProdutos.stream().forEach(lp -> System.out.println(lp));			
 		}
 	}
 }
