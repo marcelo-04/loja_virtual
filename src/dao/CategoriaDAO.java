@@ -22,6 +22,8 @@ public class CategoriaDAO {
 		
 		List<Categoria> categorias = new ArrayList<>();
 		
+		System.out.println("Executnado a query de listar categoria!");
+		
 		String sql = "SELECT ID, NOME FROM CATEGORIA";
 		
 		try(PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
