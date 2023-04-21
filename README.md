@@ -50,5 +50,8 @@ Efetuando o primeiro método de operação com banco de dados com aplicação Ja
 * Para acessar a tabela, usaremos um padrão chamado Data Access Object (DAO).
 * Para cada classe de domínio, existe um DAO. Por exemplo, a classe Produto possui um ProdutoDao.
 * Todos os métodos JDBC relacionados com o produto devem estar encapsulados no ProdutoDao.
+### Por que evitar queries N + 1?
+* Quando Utilizamos várias queries, aumenta a quantidade de acesso ao banco de dados.
+* Quando estamos falando de consultas simples, pode-se não ver o problema, mas conforme a complexidade vai aumentando e precisa-se trazer informações de várias tabelas, o acesso aumenta exponencialmente, atrapalhando a performance do banco de dados.
 
 
